@@ -83,7 +83,7 @@ job [[ template "job_name" . ]] {
           read_only   = false
         }
 
-        driver = "containerd"
+        driver = "containerd-driver"
         config {
           image   = "busybox:stable"
           command = "sh"
@@ -110,7 +110,7 @@ job [[ template "job_name" . ]] {
           read_only   = false
         }
 
-        driver = "containerd"
+        driver = "containerd-driver"
         user = "root"
         config {
             image   = "busybox:stable"
@@ -126,7 +126,7 @@ job [[ template "job_name" . ]] {
     [[- end]]
 
     task [[ template "job_name" . ]] {
-      driver = "containerd"
+      driver = "containerd-driver"
 
       [[- if .influxdb.data_volume_name ]]
       volume_mount {
